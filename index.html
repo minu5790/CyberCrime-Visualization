@@ -12,11 +12,17 @@
         <div class="dropdown">
            <button class="dropdown-toggle">선택해주세요</button>
            
-           <ul class="dropdown-content">
-               <li>1</li>
-               <li>1</li>
-               <li>1</li>
-               <li>1</li>
+           <ul class="dropdown-menu">
+            <li class="dropdown-item">
+                <button type="button" value="1" class="dropdown-option">
+                    연도별 총 합계
+                </button>
+              </li>
+              <li class="dropdown-item">
+                <button type="button" value="2" class="dropdown-option">
+                    연도별 구분
+                </button>
+              </li>
            </ul>
               
         </div>
@@ -27,9 +33,11 @@
     
     
     <script src="https://cdn.plot.ly/plotly-latest.min.js"></script>
+    <script src="./src/dropbox.js"></script>
     <script src="./src/loadcsv.js" ></script>
     <script src="./src/yearlytotal.js" ></script>
     <script src="./src/yearlytype.js" ></script>
+
     
 </body>
 </html>
