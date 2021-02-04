@@ -1,11 +1,8 @@
 const yearlytotal = () => {
   const loadYealryCsv = () => {
-    Plotly.d3.csv(
-      "../cyber/csv/경찰청_연도별 사이버범죄통계_20191231.csv",
-      (data) => {
-        processData(data);
-      }
-    );
+    Plotly.d3.csv("csv/경찰청_연도별 사이버범죄통계_20191231.csv", (data) => {
+      processData(data);
+    });
   };
   const processData = (allRows) => {
     const x1 = [],
