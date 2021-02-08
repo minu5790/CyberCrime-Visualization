@@ -92,6 +92,10 @@ const yearlytype = () => {
         labels: labels[0],
         type: "pie",
         name: "2019",
+        title: "2019",
+        titlefont: {
+          size: 15,
+        },
         domain: {
           row: 0,
           column: 0,
@@ -104,6 +108,10 @@ const yearlytype = () => {
         labels: labels[0],
         type: "pie",
         name: "2018",
+        title: "2018",
+        titlefont: {
+          size: 15,
+        },
         domain: {
           row: 0,
           column: 1,
@@ -116,6 +124,10 @@ const yearlytype = () => {
         labels: labels[0],
         type: "pie",
         name: "2017",
+        title: "2017",
+        titlefont: {
+          size: 15,
+        },
         domain: {
           row: 0,
           column: 2,
@@ -128,6 +140,10 @@ const yearlytype = () => {
         labels: labels[0],
         type: "pie",
         name: "2016",
+        title: "2016",
+        titlefont: {
+          size: 15,
+        },
         domain: {
           row: 1,
           column: 0,
@@ -140,6 +156,10 @@ const yearlytype = () => {
         labels: labels[0],
         type: "pie",
         name: "2015",
+        title: "2015",
+        titlefont: {
+          size: 15,
+        },
         domain: {
           row: 1,
           column: 1,
@@ -152,6 +172,10 @@ const yearlytype = () => {
         labels: labels[0],
         type: "pie",
         name: "2014",
+        title: "2014",
+        titlefont: {
+          size: 15,
+        },
         domain: {
           row: 1,
           column: 2,
@@ -164,7 +188,7 @@ const yearlytype = () => {
     const layout = {
       height: 800,
       grid: { rows: 2, columns: 3 },
-      title: "<b>연도별 범죄 발생건수</b>",
+      title: "<b>범죄 비율 2014 ~ 2019 (발생건수)</b>",
       titlefont: {
         size: 25,
       },

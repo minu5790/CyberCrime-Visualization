@@ -5,7 +5,7 @@ const dropdownOption = document.querySelectorAll(".dropdown-option");
 dropdownToogle.addEventListener("click", () => {
   dropdownMenu.classList.toggle("show");
 });
-dropdownToogle.addEventListener("blur", function () {
+dropdownToogle.addEventListener("blur", () => {
   dropdownMenu.classList.remove("show");
 });
 dropdownOption.forEach((e) =>
@@ -16,7 +16,7 @@ dropdownOption.forEach((e) =>
     dropdownMenu.classList.remove("show");
     if (place === "연도별 총 합계") {
       yearlytotal();
-    } else if (place === "연도별 구분") {
+    } else if (place === "연도별 범죄 비율(발생건수)") {
       yearlytype();
     }
   })
