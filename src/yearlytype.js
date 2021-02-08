@@ -5,16 +5,171 @@ const yearlytype = () => {
     });
   };
   const processData = (allRows) => {
+    const x1 = [],
+      x2 = [],
+      y1 = [],
+      y2 = [];
     const keys = Object.keys(allRows[0]).filter(
       (e) => e !== "연도" && e !== "구분"
     );
-    const allLabels = [...keys];
-    const allValues = [];
 
-    console.log(allRows);
-    makePlotly();
+    const FILEDS = [
+      "해킹",
+      "악성프로그램",
+      "직거래",
+      "사기",
+      "금융범죄",
+      "음란물",
+      "도박",
+      "저작권",
+      "명예훼손",
+      "기타",
+    ];
+    const allRowsMap = new Map();
+
+    allRows.forEach((row) => {
+      keys.forEach((key) => {
+        if (key.includes(FILEDS[0])) {
+          filterMap(FILEDS[0], key, row, allRowsMap);
+        } else if (key.includes(FILEDS[1])) {
+          filterMap(FILEDS[1], key, row, allRowsMap);
+        } else if (key.includes(FILEDS[2])) {
+          filterMap(FILEDS[2], key, row, allRowsMap);
+        } else if (key.includes(FILEDS[3])) {
+          filterMap(FILEDS[3], key, row, allRowsMap);
+        } else if (key.includes(FILEDS[4])) {
+          filterMap(FILEDS[4], key, row, allRowsMap);
+        } else if (key.includes(FILEDS[5])) {
+          filterMap(FILEDS[5], key, row, allRowsMap);
+        } else if (key.includes(FILEDS[5])) {
+          filterMap(FILEDS[6], key, row, allRowsMap);
+        } else if (key.includes(FILEDS[6])) {
+          filterMap(FILEDS[6], key, row, allRowsMap);
+        } else if (key.includes(FILEDS[7])) {
+          filterMap(FILEDS[7], key, row, allRowsMap);
+        } else if (key.includes(FILEDS[8])) {
+          filterMap(FILEDS[8], key, row, allRowsMap);
+        } else {
+          filterMap("기타", key, row, allRowsMap);
+        }
+      });
+      if (row["구분"] === "발생건수") {
+        x1.push(Array.from(allRowsMap.entries()));
+      }
+      allRowsMap.clear();
+    });
+
+    makePlotly(x1, x2);
   };
 
-  const makePlotly = () => {};
+  const filterMap = (filed, key, row, allRowsMap) => {
+    allRowsMap.set(
+      filed,
+      allRowsMap.has(filed)
+        ? allRowsMap.get(filed) + parseInt(row[key])
+        : parseInt(row[key])
+    );
+  };
+  const makePlotly = (x1, x2) => {
+    const values = [];
+    const labels = [];
+    x1.map((e) => {
+      let temp = [];
+      let temp2 = [];
+      e.map((e2) => {
+        temp.push(e2[1]);
+        temp2.push(e2[0]);
+      });
+      values.push(temp);
+      labels.push(temp2);
+      temp = [];
+      temp = [];
+    });
+
+    const data = [
+      {
+        values: values[0],
+        labels: labels[0],
+        type: "pie",
+        name: "2019",
+        domain: {
+          row: 0,
+          column: 0,
+        },
+        hoverinfo: "label+percent+name",
+        textinfo: "none",
+      },
+      {
+        values: values[1],
+        labels: labels[0],
+        type: "pie",
+        name: "2018",
+        domain: {
+          row: 0,
+          column: 1,
+        },
+        hoverinfo: "label+percent+name",
+        textinfo: "none",
+      },
+      {
+        values: values[2],
+        labels: labels[0],
+        type: "pie",
+        name: "2017",
+        domain: {
+          row: 0,
+          column: 2,
+        },
+        hoverinfo: "label+percent+name",
+        textinfo: "none",
+      },
+      {
+        values: values[3],
+        labels: labels[0],
+        type: "pie",
+        name: "2016",
+        domain: {
+          row: 1,
+          column: 0,
+        },
+        hoverinfo: "label+percent+name",
+        textinfo: "none",
+      },
+      {
+        values: values[4],
+        labels: labels[0],
+        type: "pie",
+        name: "2015",
+        domain: {
+          row: 1,
+          column: 1,
+        },
+        hoverinfo: "label+percent+name",
+        textinfo: "none",
+      },
+      {
+        values: values[5],
+        labels: labels[0],
+        type: "pie",
+        name: "2014",
+        domain: {
+          row: 1,
+          column: 2,
+        },
+        hoverinfo: "label+percent+name",
+        textinfo: "none",
+      },
+    ];
+
+    const layout = {
+      height: 800,
+      grid: { rows: 2, columns: 3 },
+      title: "<b>연도별 범죄 발생건수</b>",
+      titlefont: {
+        size: 25,
+      },
+    };
+    Plotly.newPlot("chart", data, layout, { responsive: true });
+  };
   loadYealryCsv();
 };

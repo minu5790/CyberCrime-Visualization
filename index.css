@@ -125,9 +125,11 @@ table {
 
 /* 위의 코드는 css 초기화 설정 */
 header {
-  position: relative;
+  position: sticky;
+  top: 0;
   height: 100px;
   background-color: #d9dadb;
+  z-index: 3;
 }
 header h1 {
   position: absolute;

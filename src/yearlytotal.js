@@ -49,13 +49,14 @@ const yearlytotal = () => {
     const config = { responsive: true };
 
     Plotly.newPlot(
-      "yearly__total",
+      "chart",
       data,
       {
         title: "<b>연도별 총 합계</b>",
         titlefont: {
           size: 25,
         },
+        font: { size: 18 },
       },
       config
     );
