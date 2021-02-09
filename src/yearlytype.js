@@ -6,9 +6,8 @@ const yearlytype = () => {
   };
   const processData = (allRows) => {
     const x1 = [],
-      x2 = [],
-      y1 = [],
-      y2 = [];
+      x2 = [];
+
     const keys = Object.keys(allRows[0]).filter(
       (e) => e !== "연도" && e !== "구분"
     );

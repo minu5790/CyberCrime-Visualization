@@ -61,6 +61,7 @@ const yearlytotal = () => {
       config
     );
   };
+
   loadYealryCsv();
 };
 
