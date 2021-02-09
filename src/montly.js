@@ -32,18 +32,19 @@ const montly = () => {
     return {
       x: keys,
       y: y1[index],
-      line: {
-        shape: "line",
-      },
+      type: "bar",
       visible: item === "2014",
       name: index % 2 === 0 ? "발생건수" : "검거건수",
     };
   };
   const makePlotly = (x1, keys) => {
     const data = x1.map((item, index) => makeTrace(item, index, keys));
-    console.log(data);
 
     const layout = {
+      title: "<b>월별 범죄 건수</b>",
+      titlefont: {
+        size: 25,
+      },
       height: 600,
       updatemenus: [
         {
